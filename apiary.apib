@@ -58,11 +58,19 @@ A Location object has the following attributes:
 + Response 200 (application/json)
 
                 {
+                    "ShopID" : "1",
                     "Name": "Shop no 1",
                     "Address": "Cluj-Napoca, Plopilor 50",
-                    "ContactDetails" : "Tel: 500 500, Mail:contact@shopno1.com, FB:shopno1@fb.com",
-                    "Latitude": "425540",
-                    "Longitude" : "42550"
+                    "ContactDetails" : {
+                        "Phone":"0368425540",
+                        "Web":"http://shop1.t.com"
+                        "Email":"shop1@t.com",
+                        "Facebook":"shop1@facebook.com"
+                    },
+                    "Location" : {
+                                    "Latitude": "425540",
+                                    "Longitude" : "42550" 
+                    }
                 }
 
 
@@ -83,10 +91,33 @@ A Location object has the following attributes:
 
             [
                 {
+                    "ShopID" : "1",
                     "Name": "Shop no 1",
                     "Address": "Cluj-Napoca, Plopilor 50",
-                    "ContactDetails" : "Tel: 500 500, Mail:contact@shopno1.com, FB:shopno1@fb.com",
-                    "Latitude": "425540",
-                    "Longitude" : "42550"
+                    "ContactDetails" : {
+                        "Phone":"0368425540",
+                        "Web":"http://shop1.t.com"
+                        "Email":"shop1@t.com",
+                        "Facebook":"shop1@facebook.com"
+                    },
+                    "Location" : {
+                                    "Latitude": "425540",
+                                    "Longitude" : "42550" 
+                    }
+                },
+                {
+                    "ShopID" : "2",
+                    "Name": "Shop no 2",
+                    "Address": "Cluj-Napoca, Plopilor 55",
+                    "ContactDetails" : {
+                        "Phone":"0368425545",
+                        "Web":"http://shop2.t.com"
+                        "Email":"shop2@t.com",
+                        "Facebook":"shop2@facebook.com"
+                    },
+                    "Location" : {
+                                    "Latitude": "424540",
+                                    "Longitude" : "42650" 
+                    }
                 }
             ]
