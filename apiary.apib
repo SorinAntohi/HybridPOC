@@ -1,0 +1,93 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# HybridPOC
+
+HybridPOC API is a simple API allowing users to do stuff.
+
+# Login API [/login]
+
+Login endpoint used to authentificate a user. Returns an active session id.
+
+## Login [POST]
+
+The API takes a JSON object containing the users credentials.
++ username (string) - Username as string
++ password (string) - Password as string
+
++ Request (application/json)
+
+            {
+                "username": "Username",
+                "password": "Password"
+            }
+
++ Response 200 (application/json)
+
+        {
+            "sessionID" : "be2aa4e2-19a7-4387-9e52-8f3d810b6cfb"
+        }
+        
+
++ Response 401 (application/json)
+
+        {
+            "errorCode" : 401,
+            "errorMessage" : "Username or password incorrect. Please retry"
+        }
+
+
+## Group Locations
+Resources related to locations in the API.
+
+## Location [/locations/{location_id}]
+
+A Location object has the following attributes:
+
++ Name
++ Address
++ ContactDetails
++ Latitude
++ Longitude
+
++ Parameters
+    + location_id (required, number, `1`) ... ID of the Location in form of an integer
+
+
+### View a Location Detail [GET]
+
++ Response 200 (application/json)
+
+                {
+                    "Name": "Shop no 1",
+                    "Address": "Cluj-Napoca, Plopilor 50",
+                    "ContactDetails" : "Tel: 500 500, Mail:contact@shopno1.com, FB:shopno1@fb.com",
+                    "Latitude": "425540",
+                    "Longitude" : "42550"
+                }
+
+
+## Locations Collection [/locations{?page}]
+
++ Parameters
+    + page (optional, number, `1`) ... The page of locations to return
+
+### List All Locations [GET]
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Link: </locations?page=2>; rel="next"
+
+    + Body
+
+            [
+                {
+                    "Name": "Shop no 1",
+                    "Address": "Cluj-Napoca, Plopilor 50",
+                    "ContactDetails" : "Tel: 500 500, Mail:contact@shopno1.com, FB:shopno1@fb.com",
+                    "Latitude": "425540",
+                    "Longitude" : "42550"
+                }
+            ]
